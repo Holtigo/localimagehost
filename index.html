@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Imagehost</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>My imagehost site</h1>
+<nav>
+    <h2 class="hidden">Navigation</h2>
+    <a href="index.html">Home</a>
+    <a href="html/about.html">About</a>
+</nav>
+<main>
+    <div class="main-content">
+        <h2 class="hidden">Main content</h2>
+        <p>Here you can upload your images and share them with the world!</p>
+        <p>Click the button below to upload an image.</p>
+        <label for="files">Select multiple files</label>
+        <input id="files" type="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+        <script src="js/image_load.js"></script>
+        <div class="images-container">
+            <output id="result"></output>
+        </div>
+    </div>
+</main>
+</body>
+</html>
