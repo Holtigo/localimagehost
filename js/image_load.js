@@ -3,8 +3,8 @@ document.querySelector("#files").addEventListener("change", (e) => { // When the
         const files = e.target.files; // Get the files from input
         const output = document.querySelector("#result"); // Get the output element
         output.innerHTML = ""; // Clear the output element
-        for (let i = 0; i < files.length; i++) { // Loop through the files
-            if (!files[i].type.match("image")) continue; // If not an image, skip to the next file
+        for (const element of files) { // Loop through the files
+            if (!element.type.match("image")) continue; // If not an image, skip to the next file
             const picReader = new FileReader(); // Create a FileReader
             picReader.addEventListener("load", function (event) { // Add an event listener to wait for the file to load
                 const picFile = event.target; // Get the file from the event
@@ -17,9 +17,31 @@ document.querySelector("#files").addEventListener("change", (e) => { // When the
                 div2.style.backgroundImage = `url(${picFile.result})`; // Add the image to the div
                 output.appendChild(div); // Add the div to the output element
             });
-            picReader.readAsDataURL(files[i]); // Read the file
+            picReader.readAsDataURL(element); // Read the file
         }
     } else {
         alert("Your browser does not support File API");
     }
 });
+
+
+
+/*execute this file on index.html page load*/
+/*window.addEventListener('load', misc);*/
+
+
+/*
+function misc() {
+    let fs = require('fs');
+    let files = fs.readdirSync('../vaporwave/');
+    for (let file in files) {
+        const img = new Image();
+        img.src = '../vaporwave/' + files[file];
+        img.className = 'image';
+        img.title = file;
+        const div = document.createElement('div');
+        div.className = 'image-container';
+        div.appendChild(img);
+        document.getElementById('result').appendChild(div);
+    }
+}*/
